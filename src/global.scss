@@ -1,0 +1,38 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+#rateApp {
+    ion-button {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    ion-icon {
+        color: #ffff00;
+        &.filled {
+            color: #ee5911;
+        }
+    }
+}
+
+.cut {
+
+    display: block;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-overflow: ellipsis;    
+    white-space: nowrap;
+    font-size: 100%;
+    
+  }

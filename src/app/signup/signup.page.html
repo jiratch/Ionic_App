@@ -1,0 +1,46 @@
+<ion-content>
+  <img src="/assets/night3.jpg">
+  <img class="ionic" src="/assets/ionic.png ">
+
+  <div class="signup">
+    <p style="color:white;text-align: center"><b>SIGN UP</b></p>
+  </div>
+  
+
+    <form [formGroup]="signupform" style="margin-top:80% ">
+
+      <ion-item color='newColor' style="color:white;margin-left:auto;margin-right:auto;display: block;width:80%;">
+        <ion-label position="floating">
+          <ion-icon ios="ios-person" md="md-person"></ion-icon> Username
+        </ion-label>
+        <ion-input required formControlName="Username" type="text" style="color:white"></ion-input>
+
+      </ion-item>
+  
+      <ion-item color='newColor' style="color:white;margin-left:auto;margin-right:auto;display: block;width:80%;">
+        <ion-label position="floating">
+          <ion-icon ios="ios-lock" md="md-lock"></ion-icon> Password
+        </ion-label>
+        <ion-input formControlName="Password" type="password" style="color:white"></ion-input>
+      </ion-item>
+    
+      <ion-item color='newColor' style="color:white;margin-left:auto;margin-right:auto;display: block;width:80%;">
+        <ion-label position="floating">
+          <ion-icon name="mail"></ion-icon> Email
+        </ion-label>
+        <ion-input formControlName="Email" type="email" style="color:white"></ion-input>
+      </ion-item>
+
+      <ion-button  class="button" (click)="OnConfirm()" [disabled]="!signupform.valid" 
+        expand="round" color='success' style="width:80%;margin-left:auto;margin-right:auto;display: block;margin-top:5%;color: #fff;">
+        <b>CONFIRM</b>
+      </ion-button>
+
+
+      <ion-button class="button"  routerLink="/login" routerDirection="back" expand="round" color='danger' style="width:80%;margin-left:auto;margin-right:auto;display: block;margin-top:20%;color: #fff;">
+        <b>BACK</b>
+      </ion-button>
+
+    </form>
+  
+</ion-content>

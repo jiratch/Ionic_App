@@ -1,0 +1,32 @@
+.input{
+   position: absolute;
+   top:33%;
+   width: 85%;
+ 
+ 
+}
+ion-content{
+   background-image:url("src/assets/night3.jpg") ;
+   background-size : cover;
+
+}
+
+img{
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    
+}
+img.ionic{
+    margin-left:15%;
+    margin-right:15%;
+    margin-top: 12%;
+    display: block;
+    height: 25%;
+    z-index:1;
+    width:70%;
+  
+    
+}
+

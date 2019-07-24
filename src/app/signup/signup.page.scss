@@ -1,0 +1,57 @@
+ion-content{
+    background-image:url("src/assets/night3.jpg") ;
+    background-size : cover;
+ 
+ }
+ 
+ img{
+     position: absolute;
+     display: block;
+     height: 100%;
+     width: 100%;
+     
+ }
+ 
+ .input{
+    position: absolute;
+    display: block;
+    height: 50%;
+    width: 80%;
+    margin-left:5%;
+    top:40%;
+    
+
+ }
+
+ img.ionic{
+   margin-left:22%;
+   margin-right:22%;
+   margin-top: 47%;
+   display: block;
+   height: 20%;
+   z-index:1;
+   width:56%;
+    
+}
+
+ .signup{
+   position: absolute;
+    display: block;
+    width: 100%;
+    margin-top:1%; 
+    font-family: "Great Vibes", cursive; 
+    font-size: 50px;
+    
+
+ }
+
+ ion-button.button{
+    margin-top: 15%;
+    left: 10%;
+    position: absolute;
+    display: block;
+    width: 80%;
+    color: #fff;
+    
+  
+  }

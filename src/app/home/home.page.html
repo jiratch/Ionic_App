@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title color="light" slot="start">Home</ion-title>
+  </ion-toolbar>
+  <ion-searchbar (ionChange)="Search($event)" clearInput slot="fixed"></ion-searchbar>
+</ion-header>
+<ion-content color="black">
+  <div >
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" *ngFor="let item of items">
+          <ion-card (click)="ShowDetails(item)" style="margin-left:auto;margin-right:auto;display: block;background-color:black;width:105%;height:95%">
+            <p class="cut">
+              {{item.anime_title}}
+            </p>
+            <ion-thumbnail style="margin-left:auto;margin-right:auto;display: block;width:100%;height:77%">
+              <img src="{{item.anime_image_path}}">
+            </ion-thumbnail>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   
+  </div>
+</ion-content>
