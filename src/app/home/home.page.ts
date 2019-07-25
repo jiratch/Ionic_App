@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { NavController, AlertController,Platform} from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { HTTP } from '@ionic-native/http/ngx';
+
 
 
 @Component({
@@ -21,8 +21,7 @@ export class HomePage {
     private http: HttpClient,
     public nav:NavController,
     public router : Router,
-    private activatedRoute: ActivatedRoute,
-    private HTTP:HTTP) {
+    private activatedRoute: ActivatedRoute) {
 
       this.http.get('http://localhost:3000/AnimeData').subscribe((response:Array<any>) => {
         if(response && response.length){

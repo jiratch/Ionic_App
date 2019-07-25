@@ -10,8 +10,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HTTP } from '@ionic-native/http/ngx';
-
 import { FormsModule } from '@angular/forms';
 import { IonicRatingModule } from 'ionic4-rating';
 import { IonicStorageModule } from '@ionic/storage';
@@ -34,7 +32,7 @@ import { IonicStorageModule } from '@ionic/storage';
   ],
   providers: [
     StatusBar,
-    SplashScreen,HTTP,
+    SplashScreen,
     
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
