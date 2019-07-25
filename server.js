@@ -3,9 +3,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const connectionString = "mongodb+srv://jiratch:*Belt030339*@animeapp-8lwaz.gcp.mongodb.net/AnimeApp?retryWrites=true&w=majority";
+const connectionString = "mongodb+srv://jiratchbelt:jb030339@animeapp-w2qbn.gcp.mongodb.net/AnimeApp?retryWrites=true&w=majority";
+
 var Token;
 const port = process.env.PORT || 3000;
+
+
 //Connect mongoose
 
 mongoose.connect(connectionString, { useNewUrlParser: true }, function (err) {
@@ -17,6 +20,37 @@ mongoose.connect(connectionString, { useNewUrlParser: true }, function (err) {
 });
 
 
+var Anime_Schema = mongoose.Schema({
+    status: { type: Number  },
+    score: { type: Number  },
+    tags:  { type: String  },
+    is_rewatching:  { type: Number  },
+    num_watched_episodes:  { type: Number  },
+    anime_title:  { type: String  },
+    anime_num_episodes:  { type: Number  },
+    anime_airing_status:  { type: Number  },
+    anime_id:  { type: Number  },
+    anime_studios: { type: String  },
+    anime_licensors:  { type: String  },
+    anime_season:  { type: String  },
+    has_episode_video:  { type:Boolean  },
+    has_promotion_video:  { type:Boolean  },
+    has_video:  { type:Boolean  },
+    video_url:  { type: String  },
+    anime_url:  { type: String  },
+    anime_image_path:  { type: String  },
+    is_added_to_list:  { type: Boolean },
+    anime_media_type_string:  { type: String  },
+    anime_mpaa_rating_string:  { type: String  },
+    start_date_string:  { type: String  },
+    finish_date_string:  { type: String  },
+    anime_start_date_string:  { type: String  },
+    anime_end_date_string:  { type: String  },
+    days_string:  { type: Number },
+    storage_string:  { type: String  },
+    priority_string:  { type: String  }
+
+})
 //Users Schema
 
 var Users_Schema = mongoose.Schema({
@@ -54,6 +88,9 @@ var Users_model = mongoose.model('Users', Users_Schema);
 var Reviews_model = mongoose.model('Reviews', Reviews_Schema);
 //Favorites_model 
 var Favorites_model = mongoose.model('Favorites', Favorites_Schema);
+//
+var Anime_model =  mongoose.model('animes', Anime_Schema);
+
 
 
 //Method USE
@@ -71,6 +108,15 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
 
     res.end("HELLO SERVER");
+
+});
+
+app.get('/AnimeData', (req, res) => {
+
+    Anime_model.find((err, data) => {
+        if (err) { console.log("Error getAnime"); throw err; }
+        res.json(data)
+    })
 
 });
 
@@ -99,7 +145,20 @@ app.get('/api/AnimeApp/GetFavorites', (req, res) => {
 });
 
 //Method POST
+app.post('/addAnime', (req, res) => {
+  
 
+    Anime_model.create(req.body, (err, doc) => {
+        if (err) {
+            console.log("Failed");
+            throw err;
+        }
+        res.json(doc);
+       // console.log(doc);
+    });
+});
+
+//
 app.post('/api/AnimeApp/login', (req, res) => {
     var Username = req.body.Username;
     var Password = req.body.Password;

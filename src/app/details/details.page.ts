@@ -50,7 +50,7 @@ export class DetailsPage implements OnInit {
       .then(res => {
         if (res) {
           this.user = res;
-          console.log("user form storage = " + this.user);
+      //    console.log("user form storage = " + this.user);
         }
       })
       .catch(error => {
@@ -62,13 +62,13 @@ export class DetailsPage implements OnInit {
     this.activatedRoute.queryParams.subscribe((res) => {
 
       this.AnimeObject = res;
-      console.log(this.AnimeObject);
+     // console.log(this.AnimeObject);
 
       this.GetUsername();
     });
 
 
-    this.http.get('http://localhost:3000/api/AnimeApp/GetReviews').subscribe((reviews) => {
+    this.http.get('https://arcane-springs-85188.herokuapp.com/api/AnimeApp/GetReviews').subscribe((reviews) => {
 
       this.GetReviews = reviews;
       // console.log(this.GetReviews);

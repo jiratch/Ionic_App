@@ -17,7 +17,6 @@ import { IonicRatingModule } from 'ionic4-rating';
 import { IonicStorageModule } from '@ionic/storage';
 
 
-
 @NgModule({
   declarations: [
     AppComponent
