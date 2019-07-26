@@ -23,7 +23,7 @@ export class HomePage {
     public router : Router,
     private activatedRoute: ActivatedRoute) {
 
-      this.http.get('http://localhost:3000/AnimeData').subscribe((response:Array<any>) => {
+      this.http.get('https://beltanimeapp.herokuapp.com/AnimeData').subscribe((response:Array<any>) => {
         if(response && response.length){
           this.items = response;
           this.tempItems = response;
