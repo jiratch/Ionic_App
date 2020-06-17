@@ -50,7 +50,7 @@ export class DetailsPage implements OnInit {
       .then(res => {
         if (res) {
           this.user = res;
-      //    console.log("user form storage = " + this.user);
+          console.log("user form storage = " + this.user);
         }
       })
       .catch(error => {
@@ -62,13 +62,13 @@ export class DetailsPage implements OnInit {
     this.activatedRoute.queryParams.subscribe((res) => {
 
       this.AnimeObject = res;
-     // console.log(this.AnimeObject);
+      console.log(this.AnimeObject);
 
       this.GetUsername();
     });
 
 
-    this.http.get('https://beltanimeapp.herokuapp.com/api/AnimeApp/GetReviews').subscribe((reviews) => {
+    this.http.get('http://localhost:3000/api/AnimeApp/GetReviews').subscribe((reviews) => {
 
       this.GetReviews = reviews;
       // console.log(this.GetReviews);
@@ -111,7 +111,7 @@ export class DetailsPage implements OnInit {
         anime_mpaa_rating_string: this.AnimeObject.anime_mpaa_rating_string,
         anime_title: this.AnimeObject.anime_title
       }
-      this.http.post<any>("https://beltanimeapp.herokuapp.com/api/AnimeApp/addFavorite", this.AnimeFavorite).subscribe(result => {
+      this.http.post<any>("http://localhost:3000/api/AnimeApp/addFavorite", this.AnimeFavorite).subscribe(result => {
         this.IsAdd = result.Add;
         //   this.newdoc = result.doc;
         //  console.log(this.newdoc);
@@ -135,10 +135,10 @@ export class DetailsPage implements OnInit {
       Description: Description
     }
 
-    this.http.post<any>("https://beltanimeapp.herokuapp.com/api/AnimeApp/deleteReviews", deleteReviews).subscribe(result => {
+    this.http.post<any>("http://localhost:3000/api/AnimeApp/deleteReviews", deleteReviews).subscribe(result => {
 
 
-      this.http.get('https://beltanimeapp.herokuapp.com/api/AnimeApp/GetReviews').subscribe((reviews) => {
+      this.http.get('http://localhost:3000/api/AnimeApp/GetReviews').subscribe((reviews) => {
 
         this.GetReviews = reviews;
 
@@ -163,12 +163,12 @@ export class DetailsPage implements OnInit {
     // console.log(JSON.stringify(this.Reviews));
 
     if (this.Description) {
-      this.http.post<any>("https://beltanimeapp.herokuapp.com/api/AnimeApp/addReviews", this.Reviews).subscribe(result => {
+      this.http.post<any>("http://localhost:3000/api/AnimeApp/addReviews", this.Reviews).subscribe(result => {
         // alert(result);
         // console.log(result);
         this.Description = '';
 
-        this.http.get('https://beltanimeapp.herokuapp.com/api/AnimeApp/GetReviews').subscribe((reviews) => {
+        this.http.get('http://localhost:3000/api/AnimeApp/GetReviews').subscribe((reviews) => {
 
           this.GetReviews = reviews;
           //  console.log(this.GetReviews);

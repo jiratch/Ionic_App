@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -23,15 +22,15 @@ export class HomePage {
     public router : Router,
     private activatedRoute: ActivatedRoute) {
 
-      this.http.get('https://beltanimeapp.herokuapp.com/AnimeData').subscribe((response:Array<any>) => {
-        if(response && response.length){
-          this.items = response;
-          this.tempItems = response;
-        }
+    this.http.get('https://myanimelist.net/animelist/USERNAME/load.json?status=7&offset=0').subscribe((response:Array<any>) => {
+      if(response && response.length){
+        this.items = response;
+        this.tempItems = response;
+      }
+
+    });
+  }
   
-      });
-    }
-    
   ShowDetails(Anime:any){
       this.router.navigate(['/main_tabs/tabs/details'],{
         queryParams: Anime,

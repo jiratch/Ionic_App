@@ -95,8 +95,8 @@ export class LoginPage implements OnInit {
     this.datalogin = {Username: this.loginform.value.Username,Password: this.loginform.value.Password}
 
    // alert(JSON.stringify(this.datalogin));
-    this.http.post<any>("https://beltanimeapp.herokuapp.com/api/AnimeApp/login", this.datalogin).subscribe(result => {
-      this.IsFound = result.Found;
+    this.http.post<any>("http://localhost:3000/api/AnimeApp/login", this.datalogin).subscribe(result => {
+      this.IsFound = result.Found
       this.Token = result.Token;
       this.Username = result.Username;
      // console.log(this.Username);

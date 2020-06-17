@@ -88,7 +88,7 @@ OnConfirm(){
     }
    // alert(JSON.stringify(this.data));
    
-      this.http.post<any>("https://beltanimeapp.herokuapp.com/api/AnimeApp/signup",this.datasignup).subscribe(result=>{
+      this.http.post<any>("http://localhost:3000/api/AnimeApp/signup",this.datasignup).subscribe(result=>{
       // alert(result);
        this.IsUsed = result.Use;
        callback(this.IsUsed);  

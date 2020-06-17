@@ -47,10 +47,10 @@ export class FavoritePage implements OnInit {
 
   ngOnInit() {
 
-    this.http.get('https://beltanimeapp.herokuapp.com/api/AnimeApp/GetFavorites').subscribe((favdata) => {
+    this.http.get('http://localhost:3000/api/AnimeApp/GetFavorites').subscribe((favdata) => {
 
       this.Favoritedata = favdata;
-    //  console.log(this.Favoritedata[0].anime_title);
+      console.log(this.Favoritedata[0].anime_title);
       this.GetUsername();
    
      
@@ -60,16 +60,16 @@ export class FavoritePage implements OnInit {
 
   }
   delete(anime_title:any) {
-  //  console.log(anime_title);
+    console.log(anime_title);
 
     var deleteObject={
       anime_title : anime_title,
       Username : this.user
     }
     
-    this.http.post<any>("https://beltanimeapp.herokuapp.com/api/AnimeApp/deleteFavorite",deleteObject).subscribe(result => {
+    this.http.post<any>("http://localhost:3000/api/AnimeApp/deleteFavorite",deleteObject).subscribe(result => {
       
-      this.http.get('https://beltanimeapp.herokuapp.com/api/AnimeApp/GetFavorites').subscribe((favdata) => {
+      this.http.get('http://localhost:3000/api/AnimeApp/GetFavorites').subscribe((favdata) => {
 
         this.Favoritedata = favdata;
       
@@ -83,7 +83,7 @@ export class FavoritePage implements OnInit {
   }
   ionViewDidEnter() {
 
-    this.http.get('https://beltanimeapp.herokuapp.com/api/AnimeApp/GetFavorites').subscribe((favdata) => {
+    this.http.get('http://localhost:3000/api/AnimeApp/GetFavorites').subscribe((favdata) => {
 
       this.Favoritedata = favdata;
     
