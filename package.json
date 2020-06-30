@@ -34,7 +34,7 @@
     "cordova-plugin-file": "^6.0.1",
     "core-js": "^2.5.4",
     "express": "^4.17.1",
-    "express-jwt": "^5.3.1",
+    "express-jwt": "^6.0.0",
     "ionic4-rating": "^1.0.9",
     "mongoose": "^5.6.2",
     "rxjs": "~6.5.1",
